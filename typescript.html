@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>typescript</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.8.4/typescript.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Bem-vindo ao Meu Site!</h1>
+    <button id="messageButton">Clique aqui</button>
+  </div>
+
+  <script type="text/typescript">
+    const button = document.getElementById("messageButton") as HTMLButtonElement;
+
+    button.addEventListener("click", () => {
+      alert("Você clicou no botão!");
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tsCode = document.querySelector('script[type="text/typescript"]').textContent;
+      const jsCode = ts.transpile(tsCode);
+      const script = document.createElement('script');
+      script.innerHTML = jsCode;
+      document.body.appendChild(script);
+    });
+  </script>
+
+</body>
+
+</html>
